@@ -15,17 +15,17 @@ class ConvmorphDataset(Dataset):
             if len(word) < 2: continue
             if not (word[0] in vocab_map and word[1] in vocab_map):
                 continue
-        emb = embs[idx]
-        const1_vec = embs[vocab_map[word[0]]]
-        const2_vec = embs[vocab_map[word[1]]]
-        const1 = word[0]
-        const2 = word[1]
-        self.data.append(dict(
-            word=word,
-            const1=const1, const2=const2,
-            word_vec=emb,
-            const1_vec=const1_vec, const2_vec=const2_vec
-        ))
+            emb = embs[idx]
+            const1_vec = embs[vocab_map[word[0]]]
+            const2_vec = embs[vocab_map[word[1]]]
+            const1 = word[0]
+            const2 = word[1]
+            self.data.append(dict(
+                word=word,
+                const1=const1, const2=const2,
+                word_vec=emb,
+                const1_vec=const1_vec, const2_vec=const2_vec
+            ))
 
     def __len__(self):
         return len(self.data)

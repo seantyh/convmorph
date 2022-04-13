@@ -6,7 +6,7 @@ def build_concat_space(vocabs, embs):
     kv = KeyedVectors(200)
     kv.add_vectors(vocabs, embs)
     vocab1 = []; mask = []; embs1 = []
-    for word, emb_x in tqdm(zip(vocabs, embs)):
+    for word, emb_x in tqdm(zip(vocabs, embs), total=len(vocabs)):
         if len(word) < 2:
             mask.append(False) 
             continue
@@ -28,4 +28,4 @@ def build_concat_space(vocabs, embs):
     vocab2 = [x for x, m in zip(vocabs, mask) if m]
     kv_word.add_vectors(vocab2, embs2)
 
-    return {"kv_const": kv_const, "kv_word": kv_word}
+    return (kv_const, kv_word)
