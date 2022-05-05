@@ -4,6 +4,7 @@ from .accuracy import compute_accuracy
 from .build_kvs import build_concat_space
 from .convmorph_dataset import *
 from .model_arc import *
+from .model_oreo import *
 from .model_linproj import *
 from .predictions import make_predictions
 from .spearman import compute_spearmans
